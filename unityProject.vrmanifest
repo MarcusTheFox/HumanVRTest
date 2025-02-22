@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.humanvrtest.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\menjm\\OneDrive\\Desktop\\HumanVRTest\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\Student\\Documents\\HumanVRTest\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "HumanVRTest [Testing]"
