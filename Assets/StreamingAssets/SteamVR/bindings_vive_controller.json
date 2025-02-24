@@ -194,7 +194,7 @@
                      "output" : "/actions/default/in/teleport"
                   },
                   "south" : {
-                     "output" : "/actions/default/in/jump"
+                     "output" : "/actions/default/in/nextlevel"
                   },
                   "west" : {
                      "output" : "/actions/default/in/snapturnleft"
@@ -219,6 +219,9 @@
                "inputs" : {
                   "north" : {
                      "output" : "/actions/default/in/teleport"
+                  },
+                  "south" : {
+                     "output" : "/actions/default/in/nextlevel"
                   }
                },
                "mode" : "dpad",

@@ -293,7 +293,7 @@
             {
                "inputs" : {
                   "click" : {
-                     "output" : "/actions/default/in/teleport"
+                     "output" : "/actions/default/in/nextlevel"
                   }
                },
                "mode" : "button",
@@ -316,6 +316,20 @@
                },
                "mode" : "button",
                "path" : "/user/hand/right/input/b"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/default/in/nextlevel"
+                  }
+               },
+               "mode" : "button",
+               "path" : "/user/hand/left/input/x"
+            },
+            {
+               "inputs" : {},
+               "mode" : "none",
+               "path" : "/user/hand/right/input/x"
             }
          ]
       },
@@ -352,7 +366,7 @@
    "controller_type" : "oculus_touch",
    "description" : "",
    "interaction_profile" : "",
-   "name" : "Сохранённые настройки [Testing] HumanVRTest для Контроллер Oculus Touch",
+   "name" : "Сохранённые настройки HumanVRTest [Testing] для Контроллер Oculus Touch",
    "options" : {},
    "simulated_actions" : []
 }

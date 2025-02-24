@@ -281,6 +281,24 @@
                },
                "mode" : "button",
                "path" : "/user/hand/right/input/b"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/default/in/nextlevel"
+                  }
+               },
+               "mode" : "button",
+               "path" : "/user/hand/left/input/x"
+            },
+            {
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/default/in/nextlevel"
+                  }
+               },
+               "mode" : "button",
+               "path" : "/user/hand/right/input/x"
             }
          ]
       },
@@ -317,7 +335,7 @@
    "controller_type" : "vive_cosmos_controller",
    "description" : "",
    "interaction_profile" : "",
-   "name" : "Сохранённые настройки [Testing] HumanVRTest для Vive Cosmos Controller",
+   "name" : "Сохранённые настройки HumanVRTest [Testing] для Vive Cosmos Controller",
    "options" : {
       "simulated_controller_type" : "vive_controller"
    },

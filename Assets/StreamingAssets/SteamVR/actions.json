@@ -70,6 +70,10 @@
       "type": "boolean"
     },
     {
+      "name": "/actions/default/in/NextLevel",
+      "type": "boolean"
+    },
+    {
       "name": "/actions/default/out/Haptic",
       "type": "vibration"
     },
@@ -194,7 +198,8 @@
       "/actions/default/in/CompleteButton": "CompleteButton",
       "/actions/default/in/TurnAction": "TurnAction",
       "/actions/default/in/Jump": "Jump",
-      "/actions/default/in/Fire": "Fire"
+      "/actions/default/in/Fire": "Fire",
+      "/actions/default/in/NextLevel": "NextLevel"
     }
   ]
 }
