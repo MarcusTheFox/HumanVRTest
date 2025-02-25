@@ -18,10 +18,8 @@ public class GoToNextLevel : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(nextLevelAction.state);
         if (nextLevelAction.state)
         {
-            Debug.Log("Go to next level");
             _holdingTimer -= Time.deltaTime;
             _holdingTimer = Math.Max(_holdingTimer, 0);
             

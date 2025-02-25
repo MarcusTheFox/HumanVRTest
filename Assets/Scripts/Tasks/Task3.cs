@@ -54,10 +54,6 @@ public class Task3 : TaskBasic
         {
             maxCounter = tempMaxCounter;
             base.OnPartialComplete(taskController, $"Delivered {maxCounter} box{(counter > 1 ? "es" : "")}");
-            
-            Debug.LogWarning($"{maxCounter} - {tempMaxCounter} - {counter}");
-            
-            Debug.LogWarning($"{countWithSmoothTurn} - {countWithNormalTeleportTurn} - maxCounter >= countWithSmoothTurn {maxCounter >= countWithSmoothTurn} - ");
         } 
 
         if (maxCounter - countWithSmoothTurn >= countWithNormalTeleportTurn)

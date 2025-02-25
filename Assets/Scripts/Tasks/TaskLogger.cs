@@ -4,16 +4,14 @@ using UnityEngine;
 
 public static class TaskLogger
 {
-    private static readonly string logFilePath;
+    private static string logFilePath;
 
     static TaskLogger()
     {
-        logFilePath = Path.Combine(Application.persistentDataPath, "TaskLog.txt");
-        if (!File.Exists(logFilePath))
-        {
-            File.WriteAllText(logFilePath, "Task Log - Started at " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "\n");
-            Debug.Log("TaskLogger initialized: " + logFilePath);
-        }
+        string timestamp = DateTime.Now.ToString("yyyy-MM-dd_HH-mm-ss");
+        logFilePath = Path.Combine(Application.persistentDataPath, $"TaskLog_{timestamp}.txt");
+        File.WriteAllText(logFilePath, "Task Log - Started at " + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "\n\n");
+        Debug.Log("TaskLogger initialized: " + logFilePath);
     }
 
     public enum EventType
@@ -46,6 +44,11 @@ public static class TaskLogger
         string timeString = DateTime.Now.ToString("HH:mm:ss");
         string logEntry = $"[{timeString}] [{customName}] ({timeElapsed.TotalSeconds:F2}s): {customMessage}\n";
         WriteToFile(logEntry);
+    }
+
+    public static void LogSeparator(string separator = "---")
+    {
+        WriteToFile(separator + "\n");
     }
 
     private static void WriteToFile(string logEntry)

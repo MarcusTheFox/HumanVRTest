@@ -20,7 +20,6 @@ public class TaskController : MonoBehaviour
     private void Update()
     {
         _currentTask.UpdateTask(this);
-        Debug.Log(_currentTask);
     }
 
     private void ChangeTask(ITask newTask)
@@ -28,6 +27,7 @@ public class TaskController : MonoBehaviour
         if (_currentTask != null)
         {
             _currentTask.OnExit(this);
+            TaskLogger.LogSeparator();
         }
         _currentTask = newTask;
         _currentTask?.OnEnter(this);
@@ -38,6 +38,7 @@ public class TaskController : MonoBehaviour
         if (_taskIndex + 1 >= tasks.Count)
         {
             _currentTask.OnExit(this);
+            TaskLogger.LogSeparator("=== Level End ===");
             TimeSpan levelTime = DateTime.Now - levelStartTime;
             TaskLogger.LogEvent("LevelEnd", "Level completed", levelTime);
             enabled = false;
