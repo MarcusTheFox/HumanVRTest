@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,11 +7,13 @@ public class TaskController : MonoBehaviour
 {
     private ITask _currentTask;
     private int _taskIndex;
+    private DateTime levelStartTime;
 
     public List<TaskBasic> tasks = new List<TaskBasic>();
 
     private void Start()
     {
+        levelStartTime = DateTime.Now;
         ChangeTask(tasks[0]);
     }
 
@@ -35,6 +38,8 @@ public class TaskController : MonoBehaviour
         if (_taskIndex + 1 >= tasks.Count)
         {
             _currentTask.OnExit(this);
+            TimeSpan levelTime = DateTime.Now - levelStartTime;
+            TaskLogger.LogEvent("LevelEnd", "Level completed", levelTime);
             enabled = false;
             return;
         }

@@ -8,6 +8,11 @@ public class Task1 : TaskBasic
 
     public override void OnComplete(TaskController taskController)
     {
+        if (isCompleted) return;
+        isCompleted = true;
+
+        TaskLogger.LogEvent(GetType().Name, TaskLogger.EventType.Completed, "Task completed", startTime);
+
         ShowCompleteText();
         enabled = false;
 
@@ -17,11 +22,12 @@ public class Task1 : TaskBasic
     private IEnumerator Complete(TaskController taskController)
     {
         yield return new WaitForSeconds(1);
-        base.OnComplete(taskController);
+        taskController.NextTask();
     }
 
     public override void OnExit(TaskController taskController)
     {
+        base.OnExit(taskController);
         HideTaskScreen();
     }
 

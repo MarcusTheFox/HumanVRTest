@@ -13,10 +13,6 @@ public class Task2 : TaskBasic
         base.OnComplete(taskController);
     }
 
-    public override void OnExit(TaskController taskController)
-    {
-    }
-
     public override void UpdateTask(TaskController taskController)
     {
         if (completeButton.GetState(SteamVR_Input_Sources.Any) || Input.GetKey(KeyCode.Z))

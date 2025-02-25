@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
@@ -17,6 +18,7 @@ public class Task3 : TaskBasic
     private GameObject player;
     
     private int counter = 0;
+    private int maxCounter = 0;
 
     public override void OnEnter(TaskController taskController)
     {
@@ -39,9 +41,35 @@ public class Task3 : TaskBasic
 
     public override void OnComplete(TaskController taskController)
     {
+        base.OnComplete(taskController);
         ShowCompleteText();
         boxTarget.gameObject.SetActive(false);
         StartCoroutine(LoadNextLevel());
+    }
+
+    public override void OnPartialComplete(TaskController taskController, string logMessage = "")
+    {
+        int tempMaxCounter = Math.Max(maxCounter, counter);
+        if (tempMaxCounter > maxCounter)
+        {
+            maxCounter = tempMaxCounter;
+            base.OnPartialComplete(taskController, $"Delivered {maxCounter} box{(counter > 1 ? "es" : "")}");
+            
+            Debug.LogWarning($"{maxCounter} - {tempMaxCounter} - {counter}");
+            
+            Debug.LogWarning($"{countWithSmoothTurn} - {countWithNormalTeleportTurn} - maxCounter >= countWithSmoothTurn {maxCounter >= countWithSmoothTurn} - ");
+        } 
+
+        if (maxCounter - countWithSmoothTurn >= countWithNormalTeleportTurn)
+        {
+            snapTurn.fadeScreen = false;
+            snapTurn.showTurnAnimation = false;
+        }
+        else if (maxCounter >= countWithSmoothTurn)
+        {
+            smoothTurn.enabled = false;
+            snapTurn.enabled = true;
+        }
     }
 
     private IEnumerator LoadNextLevel()
@@ -63,15 +91,9 @@ public class Task3 : TaskBasic
         {
             OnComplete(controller);
         }
-        else if (counter - countWithSmoothTurn >= countWithNormalTeleportTurn)
+        else 
         {
-            snapTurn.fadeScreen = false;
-            snapTurn.showTurnAnimation = false;
-        }
-        else if (counter >= countWithSmoothTurn)
-        {
-            smoothTurn.enabled = false;
-            snapTurn.enabled = true;
+            OnPartialComplete(controller);
         }
     }
     
