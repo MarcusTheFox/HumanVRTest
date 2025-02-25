@@ -8,7 +8,8 @@ public class TaskController : MonoBehaviour
     private ITask _currentTask;
     private int _taskIndex;
     private DateTime levelStartTime;
-
+    
+    public TimeSpan LevelTime => DateTime.Now - levelStartTime;
     public List<TaskBasic> tasks = new List<TaskBasic>();
 
     private void Start()
@@ -39,8 +40,7 @@ public class TaskController : MonoBehaviour
         {
             _currentTask.OnExit(this);
             TaskLogger.LogSeparator("=== Level End ===");
-            TimeSpan levelTime = DateTime.Now - levelStartTime;
-            TaskLogger.LogEvent("LevelEnd", "Level completed", levelTime);
+            TaskLogger.LogEvent("LevelEnd", "Level completed", LevelTime);
             enabled = false;
             return;
         }

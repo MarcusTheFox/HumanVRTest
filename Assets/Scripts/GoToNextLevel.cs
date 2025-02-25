@@ -10,10 +10,12 @@ public class GoToNextLevel : MonoBehaviour
     public float holdingTime = 8f;
     public float holdingTimeWithMessage = 5f;
     private float _holdingTimer;
+    private TaskController taskController;
 
     private void Start()
     {
         _holdingTimer = holdingTime;
+        taskController = GetComponent<TaskController>();
     }
 
     void Update()
@@ -30,6 +32,12 @@ public class GoToNextLevel : MonoBehaviour
                 
                 if (_holdingTimer == 0)
                 {
+                    if (taskController != null)
+                    {
+                        TimeSpan levelTime = taskController.LevelTime;
+                        TaskLogger.LogSeparator("=== Level Skipped ===");
+                        TaskLogger.LogEvent("NextLevel", "Player skipped to next level", levelTime);
+                    }
                     Destroy(transform.gameObject); // destroy player
                     SceneLoader.LoadNextScene();
                 }
