@@ -35,14 +35,16 @@ public static class TaskLogger
             _ => "Unknown"
         };
         TimeSpan timeElapsed = timeNow - startTime;
-        string logEntry = $"[{timeString}] [{taskName}({eventShort})] ({timeElapsed.TotalSeconds:F2}s): {customMessage}\n";
+        string timeFormatted = $"({(int)timeElapsed.TotalMinutes:D}m {timeElapsed.Seconds:D2}s)";
+        string logEntry = $"[{timeString}] [{taskName}({eventShort})] {timeFormatted}: {customMessage}\n";
         WriteToFile(logEntry);
     }
 
     public static void LogEvent(string customName, string customMessage, TimeSpan timeElapsed)
     {
         string timeString = DateTime.Now.ToString("HH:mm:ss");
-        string logEntry = $"[{timeString}] [{customName}] ({timeElapsed.TotalSeconds:F2}s): {customMessage}\n";
+        string timeFormatted = $"({(int)timeElapsed.TotalMinutes:D}m {timeElapsed.Seconds:D2}s)";
+        string logEntry = $"[{timeString}] [{customName}] {timeFormatted}: {customMessage}\n";
         WriteToFile(logEntry);
     }
 
