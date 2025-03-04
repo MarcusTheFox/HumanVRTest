@@ -7,11 +7,11 @@ using Valve.VR.InteractionSystem;
 
 public class GunShoot : MonoBehaviour
 {
-    public GameObject bulletPrefab;
-    public Transform firePoint;
-    public float bulletSpeed = 20f;
+    [SerializeField] private GameObject bulletPrefab;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float bulletSpeed = 20f;
 
-    public SteamVR_Action_Boolean fireAction;
+    [SerializeField] private SteamVR_Action_Boolean fireAction;
 
     private SteamVR_Input_Sources inputSource = SteamVR_Input_Sources.RightHand;
 

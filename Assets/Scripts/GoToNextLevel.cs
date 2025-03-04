@@ -4,11 +4,11 @@ using Valve.VR;
 
 public class GoToNextLevel : MonoBehaviour
 {
-    public GameObject canvas;
-    public TMPro.TMP_Text canvasText;
-    public SteamVR_Action_Boolean nextLevelAction;
-    public float holdingTime = 8f;
-    public float holdingTimeWithMessage = 5f;
+    [SerializeField] private GameObject canvas;
+    [SerializeField] private TMPro.TMP_Text canvasText;
+    [SerializeField] private SteamVR_Action_Boolean nextLevelAction;
+    [SerializeField] private float holdingTime = 8f;
+    [SerializeField] private float holdingTimeWithMessage = 5f;
     private float _holdingTimer;
     private TaskController taskController;
 
@@ -18,7 +18,7 @@ public class GoToNextLevel : MonoBehaviour
         taskController = GetComponent<TaskController>();
     }
 
-    void Update()
+    private void Update()
     {
         if (nextLevelAction.state)
         {

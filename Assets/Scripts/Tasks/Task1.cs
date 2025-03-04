@@ -4,7 +4,7 @@ using Valve.VR;
 
 public class Task1 : TaskBasic
 {
-    public SteamVR_Action_Boolean completeButton;
+    [SerializeField] private SteamVR_Action_Boolean completeButton;
 
     public override void OnComplete(TaskController taskController)
     {
