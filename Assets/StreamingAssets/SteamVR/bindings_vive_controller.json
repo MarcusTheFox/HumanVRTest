@@ -194,7 +194,7 @@
                      "output" : "/actions/default/in/teleport"
                   },
                   "south" : {
-                     "output" : "/actions/default/in/nextlevel"
+                     "output" : "/actions/default/in/jump"
                   },
                   "west" : {
                      "output" : "/actions/default/in/snapturnleft"
