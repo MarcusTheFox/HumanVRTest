@@ -105,6 +105,10 @@
       "name": "/actions/mixedreality/in/ExternalCamera",
       "type": "pose",
       "requirement": "optional"
+    },
+    {
+      "name": "/actions/calibrate/in/resetSpeed",
+      "type": "boolean"
     }
   ],
   "action_sets": [
@@ -123,6 +127,10 @@
     {
       "name": "/actions/mixedreality",
       "usage": "single"
+    },
+    {
+      "name": "/actions/calibrate",
+      "usage": "leftright"
     }
   ],
   "default_bindings": [

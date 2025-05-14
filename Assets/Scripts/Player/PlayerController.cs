@@ -6,8 +6,10 @@ using Valve.VR.InteractionSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    private const float DefaultSpeed = 2.0f;
+    public static float speed = DefaultSpeed;
+    
     public SteamVR_Action_Vector2 movement;
-    public float speed = 2.0f;
 
     public Transform cameraTransform;
     private CapsuleCollider capsuleCollider;
@@ -26,5 +28,10 @@ public class PlayerController : MonoBehaviour
         capsuleCollider.height = Mathf.Max(capsuleCollider.height, distanceFromFloor);
 
         capsuleCollider.center = cameraTransform.localPosition - 0.5f * distanceFromFloor * Vector3.up;
+    }
+
+    public static void ResetSpeed()
+    {
+        speed = DefaultSpeed;
     }
 }

@@ -1221,9 +1221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41c39c22d7b884c41a2cc9175434aa89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0
-  StayTime: 0
-  TMP_Texts:
+  tmpTexts:
   - {fileID: 2092765812}
   - {fileID: 2032589751}
 --- !u!65 &171145136
@@ -4158,6 +4156,30 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 421664, guid: 088b5f04d52a542ec975e88d7d9934f5, type: 3}
   m_PrefabInstance: {fileID: 743359701}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &756973405 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3433076690507572132, guid: 01abc6ba1817c02418c08bbdaeacd884, type: 3}
+  m_PrefabInstance: {fileID: 2115997098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &756973410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756973405}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27991c206a5e66147bb8ee3ef31c8bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionSet:
+    actionSetPath: /actions/calibrate
+  forSources: 0
+  disableAllOtherActionSets: 0
+  activateOnStart: 1
+  deactivateOnDestroy: 1
+  initialPriority: 0
 --- !u!1001 &769569326
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12050,6 +12072,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6221498526134160351, guid: 01abc6ba1817c02418c08bbdaeacd884, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8341806183861837912, guid: 01abc6ba1817c02418c08bbdaeacd884, type: 3}
       propertyPath: m_Name
       value: Player
@@ -12061,8 +12087,35 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8341806183861837912, guid: 01abc6ba1817c02418c08bbdaeacd884, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2115997100}
+    - targetCorrespondingSourceObject: {fileID: 3433076690507572132, guid: 01abc6ba1817c02418c08bbdaeacd884, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 756973410}
   m_SourcePrefab: {fileID: 100100000, guid: 01abc6ba1817c02418c08bbdaeacd884, type: 3}
+--- !u!1 &2115997099 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8341806183861837912, guid: 01abc6ba1817c02418c08bbdaeacd884, type: 3}
+  m_PrefabInstance: {fileID: 2115997098}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2115997100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2115997099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5206d733d9031fd40a3db326535f669a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetSpeedAction:
+    actionPath: /actions/calibrate/in/resetSpeed
+    needsReinit: 0
+  speedMeter: {fileID: 171145135}
 --- !u!1001 &2117351882
 PrefabInstance:
   m_ObjectHideFlags: 0
